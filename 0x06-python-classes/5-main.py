@@ -1,7 +1,17 @@
 #!/usr/bin/python3
-raise_exception = __import__('5-raise_exception').raise_exception
+Square = __import__('5-square').Square
 
-try:
-    raise_exception()
-except TypeError as te:
-    print("Exception raised")
+my_square = Square(3)
+my_square.my_print()
+
+print("--")
+
+my_square.size = 10
+my_square.my_print()
+
+print("--")
+
+my_square.size = 0
+my_square.my_print()
+
+print("--")

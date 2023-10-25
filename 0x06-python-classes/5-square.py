@@ -12,6 +12,16 @@ class Square:
         """area function"""
         return self.__size ** 2
 
+    def my_print(self):
+        """print function"""
+        if self.__size == 0:
+            print()
+            return
+        for i in range(self.__size):
+            for i in range(self.__size):
+                print("#", end="")
+            print()
+
     @property
     def size(self):
         """getter size funtion"""
