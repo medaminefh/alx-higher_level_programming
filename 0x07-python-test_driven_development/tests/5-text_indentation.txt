@@ -1,0 +1,28 @@
+The ``text indentation`` module
+======================
+
+Using ``text indentation``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``say_my_name`` from the ``0-say_my_name.py`` module:
+
+    >>> text_indentation = __import__("5-text_indentation").text_indentation
+
+checking for module docs
+   >>> mod = __import__("5-text_indentation").__doc__
+   >>> len(mod) > 1
+   True
+
+checking for function docs
+   >>> fun = __import__("5-text_indentation").text_indentation.__doc__
+   >>> len(fun) > 1
+   True
+
+Now use it:
+
+    >>> text_indentation("hello there: This is another one")
+    hello there:
+    <BLANKLINE>
+    This is another one
+

@@ -1,0 +1,36 @@
+The ``addetion`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer.py`` module:
+
+    >>> add_integer = __import__("0-add_integer").add_integer
+
+checking for module docs
+   >>> mod = __import__("0-add_integer").__doc__
+   >>> len(mod) > 1
+   True
+
+checking for function docs
+   >>> fun = __import__("0-add_integer").add_integer.__doc__
+   >>> len(fun) > 1
+   True
+
+Now use it:
+
+    >>> add_integer(5, 5)
+    10
+    >>> add_integer(5, 10)
+    15
+    >>> add_integer(5,"hello")
+    Traceback (most recent call last):
+      ...
+    TypeError: b must be an integer
+    >>> add_integer("hello", 5)
+    Traceback (most recent call last):
+      ...
+    TypeError: a must be an integer
+
