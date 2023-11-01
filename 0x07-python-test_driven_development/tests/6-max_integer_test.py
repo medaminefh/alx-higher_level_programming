@@ -17,5 +17,5 @@ class TestMaxInt(unittest.TestCase):
         result = max_integer([])
         self.assertEqual(result, None)
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     unittest.main()

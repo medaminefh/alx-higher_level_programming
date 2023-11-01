@@ -1,0 +1,29 @@
+The ``addetion`` module
+======================
+
+Using ``add_integer``
+-------------------
+
+This is an example text file in reStructuredText format.  First import
+``add_integer`` from the ``0-add_integer.py`` module:
+
+    >>> lazy_mat = __import__("101-lazy_matrix_mul").lazy_matrix_mul
+
+checking for module docs
+   >>> mod = __import__("101-lazy_matrix_mul").__doc__
+   >>> len(mod) > 1
+   True
+
+checking for function docs
+   >>> fun = __import__("101-lazy_matrix_mul").lazy_matrix_mul.__doc__
+   >>> len(fun) > 1
+   True
+
+Now use it:
+
+    >>> lazy_matrix_mul([[1, 2], [3, 4]], [[1, 2], [3, 4]])
+    [[ 7 10] [15 22]][[13 16]]
+
+    >>> lazy_matrix_mul([[]],[[1, 2], [3,4]])
+    Traceback (most recent call last):
+    ValueError: shapes (1,0) and (2,2) not aligned: 0 (dim 1) != 2 (dim 0)
