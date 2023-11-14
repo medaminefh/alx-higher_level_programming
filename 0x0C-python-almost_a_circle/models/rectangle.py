@@ -92,3 +92,33 @@ class Rectangle(Base):
         x = self.x
         y = self.y
         return f"[Rectangle] ({self.id}) {x}/{y} - {width}/{height}"
+
+    def update(self, *args, **kwargs):
+        """update the attributes of the instance"""
+        if args and len(args) > 0:
+            i = 0
+            for arg in args:
+                if i == 0:
+                    self.id = arg
+                elif i == 1:
+                    self.width = arg
+                elif i == 2:
+                    self.height = arg
+                elif i == 3:
+                    self.x = arg
+                elif i == 4:
+                    self.y = arg
+                i += 1
+        else:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
+
+    def to_dictionary(self):
+        """return the json representation"""
+        return {
+                "id": self.id,
+                "width": self.width,
+                "height": self.height,
+                "x": self.x,
+                "y": self.y
+                }
