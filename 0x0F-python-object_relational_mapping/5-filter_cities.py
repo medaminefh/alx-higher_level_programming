@@ -10,14 +10,15 @@ if __name__ == "__main__":
     username = sys.argv[1]
     password = sys.argv[2]
     db = sys.argv[3]
+    word = sys.argv[4]
 
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, password=password, database=db)
     cursor = db.cursor()
-    cursor.execute("SELECT * from states ORDER BY id ASC")
+    cursor.execute("SELECT cities.name from cities JOIN states\
+                   WHERE states.name = %s ORDER BY cities.id ASC", (word,))
     rows = cursor.fetchall()
-
-    for state in rows:
-        print(state)
+    cities = list(row[0] for row in rows)
+    print(*cities, sep=", ")
     cursor.close()
     db.close()
