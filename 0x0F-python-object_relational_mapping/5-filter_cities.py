@@ -16,6 +16,7 @@ if __name__ == "__main__":
                          user=username, password=password, database=db)
     cursor = db.cursor()
     cursor.execute("SELECT cities.name from cities JOIN states\
+                   ON cities.state_id = states.id\
                    WHERE states.name = %s ORDER BY cities.id ASC", (word,))
     rows = cursor.fetchall()
     cities = list(row[0] for row in rows)
