@@ -15,8 +15,8 @@ if __name__ == "__main__":
     db = MySQLdb.connect(host="localhost", port=3306,
                          user=username, password=password, database=db)
     cursor = db.cursor()
-    cursor.execute("SELECT * from states WHERE name = %s\
-                   ORDER BY id ASC", [word])
+    cursor.execute("SELECT * from states WHERE name LIKE %s\
+                   ORDER BY id ASC", (word,))
     rows = cursor.fetchall()
 
     for state in rows:
