@@ -2,11 +2,10 @@
 """Module that takes in a URL, sends a request to the URL and displays the
 value of the X-Request-Id variable found in the header of the response."""
 import requests
+import sys
 
 
 if __name__ == "__main__":
-    url = 'https://intranet.alxswe.com/status'
+    url = sys.argv[1]
     res = requests.get(url)
-    print("Body response:")
-    print("\t- type: {}".format(type(res.text)))
-    print("\t- content: {}".format(res.text))
+    print(res.headers.get('X-Request-Id'))
